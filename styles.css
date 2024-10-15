@@ -1,1 +1,78 @@
-CSS doc
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, main, section, article, nav, aside, footer {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+header {
+    background-color: #f0f0f0;
+}
+
+nav {
+    position: relative;
+}
+
+#nav-toggle {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#nav-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+#nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-menu li {
+    padding: 5px 10px;
+}
+
+#nav-menu li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#nav-toggle:focus + #nav-menu,
+#nav-menu:hover {
+    display: block; /* show menu when button is clicked or hovered */
+}
+
+article {
+    background-color: #f9f9f9;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+figcaption {
+    background-color: #eee;
+    padding: 5px;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
