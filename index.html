@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-wdith, initial-scale=1.0">
     <title>Gallery</title>
     <link rel="stylesheet" href="styles.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            function toggleMenu() {
+                if (navMenu.style.display === 'block') {
+                    navMenu.style.display = 'none';
+                } else {
+                    navMenu.style.display = 'block';
+                }
+            }
+
+            navToggle.addEventListener('click', toggleMenu);
+            navToggle.addEventListener('touchstart', function(event) {
+                event.preventDefault();
+                toggleMenu();
+            });
+        })
+    </script>
+
 </head>
 <body>
 
