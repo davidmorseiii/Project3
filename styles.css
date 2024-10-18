@@ -68,11 +68,6 @@ footer {
     display: block; /* show menu when button is clicked or hovered */
 }
 
-
-article {
-    background-color: #f9f9f9;
-}
-
 figure {
     margin: 0;
     padding: 0;
@@ -80,8 +75,20 @@ figure {
 }
 
 figcaption {
-    background-color: #eee;
     padding: 5px;
+    text-decoration: underline;
+}
+
+.caption-fall {
+    color: #d3b71a
+}
+
+.caption-honeymoon {
+    color: #55bfe9;
+}
+
+.caption-bridals {
+    color: #ff93a3;
 }
 
 
