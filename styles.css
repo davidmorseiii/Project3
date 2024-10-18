@@ -4,7 +4,7 @@ body {
     padding: 0;
 }
 
-header, main, section, article, nav, aside, footer {
+header, main, footer {
     border: 1px solid black;
     padding: 10px;
     margin: 10px;
@@ -15,7 +15,20 @@ header {
 }
 
 nav {
-    position: relative;
+    margin: 10px 0;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color : #333;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
 }
 
 #nav-toggle {
@@ -55,6 +68,7 @@ nav {
     display: block; /* show menu when button is clicked or hovered */
 }
 
+
 article {
     background-color: #f9f9f9;
 }
@@ -70,9 +84,44 @@ figcaption {
     padding: 5px;
 }
 
-footer {
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.image-grid figure {
+    margin: 0;
+    padding: 0;
     text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+}
+
+.image-grid figcaption {
+    background-color: #eee;
+    padding: 5px;
+}
+
+@media (max-width: 600px) {
+    header, main, footer {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
 }
