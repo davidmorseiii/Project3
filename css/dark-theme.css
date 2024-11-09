@@ -1,0 +1,119 @@
+/*
+- body background and text color
+- slightly lighter dark background to header, main, and footer
+  for better contrast
+- nav-toggle and nav-menu much darker
+- nav a links to ligher color
+- .image-grid and figcaption change on borders and darker background
+- slightly softer hues on unique caption colors (caption-fall, etc..)
+- keeping dark mode button dark at all times because it seems fitting
+*/
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+
+header, main, footer {
+    background-color: #1f1f1f;
+    border-color: #333;
+}
+
+header {
+    background-color: #282828;
+}
+
+nav a {
+    color: #b3b3b3;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #66ccff;
+}
+
+footer {
+    background-color: #181818;
+    color: #ccc;
+}
+
+#nav-toggle {
+    background-color: #444;
+    color: #eee;
+    border: 1px solid #666;
+}
+
+#nav-toggle:hover {
+    background-color: #555;
+}
+
+#nav-menu {
+    display: none;
+    background-color: #333;
+    border-color: #444;
+}
+
+#nav-menu li a {
+    color: #ccc;
+}
+
+#nav-menu li a:hover {
+    color: #66ccff;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    border-color: #444;
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+figure {
+    text-align: center;
+}
+
+.image-grid figcaption {
+    background-color: #333;
+    color: #ccc;
+}
+
+.caption-fall {
+    color: #ffc107; /* amber */
+}
+
+.caption-honeymoon {
+    color: #4fc3f7; /* light blue */
+}
+
+.caption-bridals {
+    color: #f48fb1; /* pink */
+}
+
+.image-grid img {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    nav a {
+        color: #999;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+}

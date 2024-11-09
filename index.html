@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-wdith, initial-scale=1.0">
     <title>Gallery</title>
-    <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="css/main.css">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navToggle = document.getElementById('nav-toggle');
             const navMenu = document.getElementById('nav-menu');
+            const themeToggleButton = document.getElementById('theme-toggle');
+            let darkThemeLink;
 
             function toggleMenu() {
                 if (navMenu.style.display === 'block') {
@@ -24,7 +25,21 @@
                 event.preventDefault();
                 toggleMenu();
             });
-        })
+
+            function toggleTheme() {
+                if (darkThemeLink) {
+                    darkThemeLink.remove();
+                    darkThemeLink = null;
+                } else {
+                    darkThemeLink = document.createElement('link');
+                    darkThemeLink.rel = 'stylesheet';
+                    darkThemeLink.href = 'css/dark-theme.css';
+                    document.head.appendChild(darkThemeLink);
+                }
+            }
+
+            themeToggleButton.addEventListener('click', toggleTheme);
+        });
     </script>
 
 </head>
@@ -34,6 +49,7 @@
         <h1>David + Emily Collection</h1>
         <nav>
             <button id="nav-toggle">Collections</button>
+            <button id="theme-toggle">Dark Mode</button>
             <div id="nav-menu">
                 <ul>
                     <li><a href="fall.html">Fall</a></li>

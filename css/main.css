@@ -1,0 +1,148 @@
+/*
+- removed "figure" styling redundancy
+- moved margin/padding adjustments within @media query from
+  header, main, footer to single body rule
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+header {
+    background-color: #f0f0f0;
+}
+
+nav {
+    margin: 10px 0;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color : #333;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+#nav-toggle {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#theme-toggle {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#nav-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+#nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-menu li {
+    padding: 5px 10px;
+}
+
+#nav-menu li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#nav-toggle:focus + #nav-menu,
+#nav-menu:hover {
+    display: block; /* show menu when button is clicked or hovered */
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+figcaption {
+    padding: 5px;
+    text-decoration: underline;
+}
+
+.caption-fall {
+    color: #d3b71a
+}
+
+.caption-honeymoon {
+    color: #55bfe9;
+}
+
+.caption-bridals {
+    color: #ff93a3;
+}
+
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.image-grid {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+}
+
+.image-grid figcaption {
+    background-color: #eee;
+    padding: 5px;
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
