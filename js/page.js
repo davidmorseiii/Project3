@@ -1,10 +1,9 @@
-// page.js
 
 function initPageFeatures() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     const themeToggleButton = document.getElementById('theme-toggle');
-    const logVisitButton = document.getElementById('log-visit-btn'); // Added Log Visit button
+    const logVisitButton = document.getElementById('log-visit-btn');
     const visitorFormSection = document.getElementById('visitor-form-section');
 
     let darkThemeLink;
@@ -53,7 +52,7 @@ function initPageFeatures() {
 
     themeToggleButton.addEventListener('click', toggleTheme);
 
-    logVisitButton.addEventListener('click', toggleVisitorForm); // Added event listener
+    logVisitButton.addEventListener('click', toggleVisitorForm);
 
     console.log('Page features initialized successfully.');
 }

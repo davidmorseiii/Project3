@@ -1,4 +1,3 @@
-// validation.js
 
 const stateAbbreviations = [
     'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
@@ -8,7 +7,6 @@ const stateAbbreviations = [
     'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
 ];
 
-// Regex patterns
 const regexPatterns = {
     zip: /^\d{5}(-\d{4})?$/,
     phone: /^(\+1\s?)?(\d{3}|\(\d{3}\))[-.\s]?\d{3}[-.\s]?\d{4}$/,
@@ -27,16 +25,13 @@ function initValidation(formSelector) {
         event.stopPropagation();
 
         if (validateForm(form)) {
-            // Hide the form and show the thank you message
             form.parentElement.querySelector('#success').style.display = 'block';
             form.style.display = 'none';
         } else {
-            // Form is invalid, display errors
             console.log('Form validation failed.');
         }
     });
 
-    // Add change event listeners to inputs for real-time validation
     const inputs = form.querySelectorAll('input, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', function() {
@@ -48,7 +43,6 @@ function initValidation(formSelector) {
 function validateForm(form) {
     let isValid = true;
 
-    // Validate required fields
     isValid &= checkRequired('first-name', 'First name is required.');
     isValid &= checkRequired('last-name', 'Last name is required.');
     isValid &= checkRequired('address', 'Address is required.');
@@ -59,15 +53,13 @@ function validateForm(form) {
     isValid &= checkRequired('phone', 'Phone number is required.');
     isValid &= checkRequiredCheckboxGroup('find-page', 'Please select at least one option.');
 
-    // Validate formats
     isValid &= checkFormat('zip', 'Invalid zip code format.', regexPatterns.zip);
     isValid &= checkFormat('phone', 'Invalid phone number format.', regexPatterns.phone);
     isValid &= checkFormat('email', 'Invalid email format.', regexPatterns.email);
 
-    // Validate state
     isValid &= validateState('state', 'Invalid state abbreviation.');
 
-    return !!isValid; // Convert to boolean
+    return !!isValid;
 }
 
 function validateField(input) {
@@ -75,7 +67,6 @@ function validateField(input) {
     let valid = true;
     let message = '';
 
-    // Determine the type of validation based on the field
     switch(fieldId) {
         case 'first-name':
         case 'last-name':
@@ -107,11 +98,9 @@ function validateField(input) {
                 valid = checkFormat(fieldId, 'Invalid email format.', regexPatterns.email);
             }
             break;
-        case 'newspaper': // Checkbox group
-            // Handled separately
+        case 'newspaper':
             break;
         default:
-            // For other fields like comments (optional), no validation needed
             break;
     }
 
@@ -141,7 +130,6 @@ function checkRequired(fieldId, requiredMessage) {
 function checkRequiredCheckboxGroup(groupName, requiredMessage) {
     const checkboxes = document.querySelectorAll(`input[name="${groupName}"]`);
     const isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
-    // Assuming the last checkbox has the error message div
     if (checkboxes.length > 0) {
         setElementValidity(checkboxes[checkboxes.length - 1].id, isValid, requiredMessage);
     }
@@ -195,6 +183,5 @@ function setElementValidity(id, valid, message) {
         }
     }
 
-    // Trigger CSS validation styles
     field.classList.add('was-validated');
 }
