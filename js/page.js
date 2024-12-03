@@ -56,3 +56,7 @@ function initPageFeatures() {
 
     console.log('Page features initialized successfully.');
 }
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    initPageFeatures();
+});
