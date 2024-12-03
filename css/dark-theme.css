@@ -1,119 +1,49 @@
-/*
-- body background and text color
-- slightly lighter dark background to header, main, and footer
-  for better contrast
-- nav-toggle and nav-menu much darker
-- nav a links to ligher color
-- .image-grid and figcaption change on borders and darker background
-- slightly softer hues on unique caption colors (caption-fall, etc..)
-- keeping dark mode button dark at all times because it seems fitting
-*/
-
 body {
     background-color: #121212;
-    color: #e0e0e0;
+    color: #ffffff;
 }
-
 
 header, main, footer {
-    background-color: #1f1f1f;
-    border-color: #333;
-}
-
-header {
-    background-color: #282828;
+    border-color: #ffffff;
 }
 
 nav a {
-    color: #b3b3b3;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
-}
-
-nav a:hover {
-    color: #66ccff;
-}
-
-footer {
-    background-color: #181818;
-    color: #ccc;
-}
-
-#nav-toggle {
-    background-color: #444;
-    color: #eee;
-    border: 1px solid #666;
-}
-
-#nav-toggle:hover {
-    background-color: #555;
+    color: #ffffff;
 }
 
 #nav-menu {
-    display: none;
-    background-color: #333;
+    background-color: #1e1e1e;
     border-color: #444;
 }
 
-#nav-menu li a {
-    color: #ccc;
-}
-
-#nav-menu li a:hover {
-    color: #66ccff;
-}
-
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    border-color: #444;
-    background-color: #1a1a1a;
-    text-align: center;
-}
-
-figure {
-    text-align: center;
-}
-
-.image-grid figcaption {
+.flex input, .flex textarea {
     background-color: #333;
-    color: #ccc;
+    color: #fff;
+    border: 1px solid #555;
 }
 
-.caption-fall {
-    color: #ffc107; /* amber */
+.flex button {
+    background-color: #555;
 }
 
-.caption-honeymoon {
-    color: #4fc3f7; /* light blue */
+.flex button:hover {
+    background-color: #777;
 }
 
-.caption-bridals {
-    color: #f48fb1; /* pink */
+input.was-validated:invalid,
+textarea.was-validated:invalid {
+    border: 1px solid #ff5555;
 }
 
-.image-grid img {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in forwards;
+input.was-validated:valid,
+textarea.was-validated:valid {
+    border: 1px solid #55ff55;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.errorMsg {
+    color: #ff5555;
 }
 
-@media (max-width: 600px) {
-    nav a {
-        color: #999;
-    }
-
-    .image-grid {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    }
+.successMsg {
+    color: #55ff55;
 }

@@ -1,56 +1,10 @@
-<!----
-SELF GRADE--
-REFACTOR CSS-FIX       A
-CSS THEME              B
-CSS THEME TOGGLE       A
-MOBILE RESPONSIVE      B
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-wdith, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <link rel="stylesheet" href="css/main.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.getElementById('nav-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            const themeToggleButton = document.getElementById('theme-toggle');
-            let darkThemeLink;
-
-            function toggleMenu() {
-                if (navMenu.style.display === 'block') {
-                    navMenu.style.display = 'none';
-                } else {
-                    navMenu.style.display = 'block';
-                }
-            }
-
-            navToggle.addEventListener('click', toggleMenu);
-            navToggle.addEventListener('touchstart', function(event) {
-                event.preventDefault();
-                toggleMenu();
-            });
-
-            function toggleTheme() {
-                if (darkThemeLink) {
-                    darkThemeLink.remove();
-                    darkThemeLink = null;
-                } else {
-                    darkThemeLink = document.createElement('link');
-                    darkThemeLink.rel = 'stylesheet';
-                    darkThemeLink.href = 'css/dark-theme.css';
-                    document.head.appendChild(darkThemeLink);
-                }
-            }
-
-            themeToggleButton.addEventListener('click', toggleTheme);
-        });
-    </script>
-
 </head>
 <body>
 
@@ -59,6 +13,7 @@ MOBILE RESPONSIVE      B
         <nav>
             <button id="nav-toggle">Collections</button>
             <button id="theme-toggle">Dark Mode</button>
+            <button id="log-visit-btn">Log Visit</button> <!-- Added Log Visit Button -->
             <div id="nav-menu">
                 <ul>
                     <li><a href="fall.html">Fall</a></li>
@@ -71,6 +26,87 @@ MOBILE RESPONSIVE      B
         </nav>
     </header>
 
+    <div class="container">
+        <!-- Hidden Visitor Form Section -->
+        <div id="visitor-form-section" style="display: none;">
+            <h1>Visitor Form</h1>
+            <div id="success" class="successMsg" style="display:none">
+              Thank you for logging your visit!
+            </div>
+            <form id="myform" novalidate>
+              <ul class="flex">
+                <!-- Personal Information Section -->
+                <li>
+                  <label for="first-name">First Name<span class="required">*</span></label>
+                  <input type="text" id="first-name" name="first-name" placeholder="Enter your first name here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <label for="last-name">Last Name<span class="required">*</span></label>
+                  <input type="text" id="last-name" name="last-name" placeholder="Enter your last name here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <label for="address">Address<span class="required">*</span></label>
+                  <input type="text" id="address" name="address" placeholder="Enter your address here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <label for="city">City<span class="required">*</span></label>
+                  <input type="text" id="city" name="city" placeholder="Enter your city here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <label for="state">State<span class="required">*</span></label>
+                  <input type="text" id="state" name="state" placeholder="Enter your state here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <label for="zip">Zip<span class="required">*</span></label>
+                  <input type="text" id="zip" name="zip" placeholder="Enter your zip code here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <label for="email">Email<span class="required">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <label for="phone">Phone<span class="required">*</span></label>
+                  <input type="text" id="phone" name="phone" placeholder="Enter your phone here" class="was-validated">
+                  <div class="errorMsg"></div>
+                </li>
+                <li>
+                  <h2>How did you find my page?<span class="required">*</span></h2>
+                </li>
+                <li class="checkbox-group">
+                  <input type="checkbox" id='google' name='find-page' value="google">
+                  <label for="google">Google Search</label>
+                </li>
+                <li class="checkbox-group">
+                  <input type="checkbox" id='friend' name='find-page' value="friend">
+                  <label for="friend">Friend</label>
+                </li>
+                <li class="checkbox-group">
+                  <input type="checkbox" id='newspaper' name='find-page' value="newspaper">
+                  <label for="newspaper">News Paper</label>
+                  <div class="errorMsg"></div>
+                </li>
+                
+                <li>
+                  <label for="comment">Comments</label>
+                  <textarea rows="4" id="comment" name="comment" placeholder="Enter your comments here"></textarea>
+                </li>
+                
+                <li>
+                  <button id="submitBtn" type="submit">Send</button>
+                </li>
+              </ul>
+            </form>
+        </div>
+        <!-- End of Visitor Form Section -->
+    </div>
+    
     <main>
         <section>
             <h2>Featured Collections</h2>
@@ -80,13 +116,13 @@ MOBILE RESPONSIVE      B
                     <figcaption class="caption-fall">Fall 10/08/24</figcaption>
                 </figure>
             </article>
-            <article id="collection2"></article>
+            <article id="collection2">
                 <figure>
                     <img src="honeymoon/IMG_7349.JPG" alt="Photo shoot 2">
                     <figcaption class="caption-honeymoon">Honeymoon 06/16/24</figcaption>
                 </figure>
             </article>
-            <article id="collection3"></article>
+            <article id="collection3">
                 <figure>
                     <img src="bridals/TessaWeightPhoto-1991.jpg" alt="Photo shoot 3">
                     <figcaption class="caption-bridals">Bridals 04/19/24</figcaption>
@@ -95,13 +131,17 @@ MOBILE RESPONSIVE      B
         </section>
 
         <aside>
-            <a href="https://www.instagram.com/dmorse3/">Follow me on instagram!</a>
+            <a href="https://www.instagram.com/dmorse3/">Follow me on Instagram!</a>
         </aside>
     </main>
 
     <footer>
         <p>&copy; 2024 David &amp; Emily's Photo Gallery</p>
     </footer>
+
+    <script src="js/validation.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/page.js" defer></script>
 
 </body>
 </html>

@@ -1,9 +1,3 @@
-/*
-- removed "figure" styling redundancy
-- moved margin/padding adjustments within @media query from
-  header, main, footer to single body rule
-*/
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -22,12 +16,13 @@ header {
 
 nav {
     margin: 10px 0;
+    position: relative;
 }
 
 nav a {
     margin-right: 15px;
     text-decoration: none;
-    color : #333;
+    color: #333;
 }
 
 footer {
@@ -37,29 +32,24 @@ footer {
     padding: 20px;
 }
 
-#nav-toggle {
+#nav-toggle, #theme-toggle, #log-visit-btn { /* Styled buttons */
     background-color: #333;
     color: #fff;
     padding: 10px;
     border: none;
     cursor: pointer;
-}
-
-#theme-toggle {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+    margin-right: 5px;
 }
 
 #nav-menu {
     display: none;
     position: absolute;
-    top: 40px;
+    top: 50px; /* Adjusted to avoid overlapping with Log Visit button */
     left: 0;
     background-color: #fff;
     border: 1px solid #ccc;
+    width: 200px; 
+    z-index: 1000; 
 }
 
 #nav-menu ul {
@@ -69,17 +59,17 @@ footer {
 }
 
 #nav-menu li {
-    padding: 5px 10px;
+    padding: 10px;
 }
 
 #nav-menu li a {
     text-decoration: none;
     color: #333;
+    display: block;
 }
 
-#nav-toggle:focus + #nav-menu,
-#nav-menu:hover {
-    display: block; /* show menu when button is clicked or hovered */
+#nav-menu.active {
+    display: block;
 }
 
 figure {
@@ -94,7 +84,7 @@ figcaption {
 }
 
 .caption-fall {
-    color: #d3b71a
+    color: #d3b71a;
 }
 
 .caption-honeymoon {
@@ -105,7 +95,6 @@ figcaption {
     color: #ff93a3;
 }
 
-
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -113,7 +102,7 @@ figcaption {
     margin-top: 20px;
 }
 
-.image-grid {
+.image-grid figure {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -132,7 +121,7 @@ figcaption {
 }
 
 @media (max-width: 600px) {
-    body {
+    header, main, footer {
         margin: 5px;
         padding: 5px;
     }
@@ -145,4 +134,89 @@ figcaption {
     .image-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
+}
+
+/* Flexbox Form Layout */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.flex li {
+    flex: 1 1 45%; /* Adjust the width as needed */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex li.full-width {
+    flex: 1 1 100%;
+}
+
+.flex label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.flex input, .flex textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.flex button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.flex button:hover {
+    background-color: #555;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 5px;
+}
+
+/* Validation Styles */
+input.was-validated:invalid,
+textarea.was-validated:invalid {
+    border: 1px solid red;
+}
+
+input.was-validated:valid,
+textarea.was-validated:valid {
+    border: 1px solid green;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+}
+
+input.was-validated:invalid ~ .errorMsg,
+textarea.was-validated:invalid ~ .errorMsg {
+    display: block;
+}
+
+.successMsg {
+    color: green;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.required {
+    color: red;
 }
